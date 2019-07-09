@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ETC Cryptocurrency - Mine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-panel row main-panel">
+            <div class="row">
+                <div class="col s12">
+                    <a href="/" class="link-menu">Home</a>
+                    <div class="div-sep">|</div>
+                    <a href="/register" class="link-menu">Register</a>
+                    <div class="div-sep">|</div>
+                    <a href="/balance" class="link-menu">Balance</a>
+                    <div class="div-sep">|</div>
+                    <a href="/about" class="link-menu">About</a>
+                    <div class="div-sep">|</div>
+                </div>
+            </div>
+            <div class="row col s12">
+                <div class="center col s12">
+                    <h3>Mine</h3>
+                    <br>
+                </div>
+            </div>
+            <div class="row col s12">
+                <div class="col s1 m2 l3"></div>
+                <div class="col s10 m8 l6">
+                    <form id="frmPay">
+                        <div class="row">
+                            <div class="col s12 input-field">
+                                <label for="txtAmount" class="cus-table">Account ID</label>
+                                <input id="txtAmount" type="text" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 input-field">
+                                <label for="txtSign" class="cus-table">Digital sign</label>
+                                <input id="txtSign" type="password" required>
+                            </div>
+                        </div>
+                        <div class="row center">
+                            <button id="btnPay" class="btn btn-large waves-effect waves-light">START</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col s1 m2 l3"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="/script.js"></script>
+    <script>
+        $(()=>{
+            setInterval(()=>{
+                $.ajax({
+                    url: "/mine",
+                    type: "POST",
+                    success: (data)=>{
+                        console.log(data)
+                    },
+                    error: (data)=>{
+                        console.error(data)
+                    },
+                })
+            }, 100)
+        });
+    </script>
+</body>
+</html>

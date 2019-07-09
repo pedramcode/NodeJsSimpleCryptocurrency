@@ -1,0 +1,27 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+$(()=>{
+	setInterval(()=>{
+		$.ajax({
+			url: "/mine",
+			type: "POST",
+			success: (data)=>{
+				console.log(data)
+				if(data==="OK"){
+					$("#label").text(parseInt($("#label").text()) + 1)
+				}
+			},
+			error: (data)=>{
+				console.error(data)
+			},
+		})
+	}, 100)
+});
+</script>
+
+<center>
+	<br><br>
+	<h1>Mining</h1>
+	<br>
+	<p style="font-size:2em">Mined blocks : <span id="label" style="color:red;font-weight:bold">0</span></p>
+</center>
